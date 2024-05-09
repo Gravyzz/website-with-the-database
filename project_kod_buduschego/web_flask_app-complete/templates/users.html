@@ -1,0 +1,37 @@
+<html>
+
+    <head>      
+    </head>
+
+    <body>
+        <!-- Гиперссылки на страницы сайта -->
+        <a href="{{ url_for('index') }}">Главная</a>
+        <a href="{{ url_for('users') }}">Путешествия</a>
+        <a href="{{ url_for('registration') }}">Заплонировать путешествие</a>
+        <!-- Заголовок страницы -->
+        <h1>Путешествия</h1>
+        <!-- Начало таблицы -->
+        <table border="1">
+            <!-- Заголовки столбцов таблицы -->
+            <tr>
+                <th>Place of the trip</th>
+                <th>Date of the trip</th>
+                <th>Budget</th>
+                <th>Place of residence</th>
+                <th>How long</th>
+            </tr>
+            <!-- Цикл для каждого пользователя в списке пользователей -->
+            {% for i in Travel %}
+                <!-- Создание строки таблицы для каждого пользователя -->
+                <tr>
+                    <td>{{ i.Place_of_the_trip }}</td>
+                    <td>{{ i.Date_of_the_trip }}</td>
+                    <td>{{ i.Budget }}</td>
+                    <td>{{ i.Place_of_residence }}</td>
+                    <td>{{ i.How_long }}</td>
+                    
+                </tr>
+            {% endfor %}
+        </table>        
+    </body>
+</html>

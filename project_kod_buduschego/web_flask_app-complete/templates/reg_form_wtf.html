@@ -1,0 +1,39 @@
+<html>
+
+    <head></head>
+
+    <body>
+        <a href="{{ url_for('index') }}">Главная</a>
+        <a href="{{ url_for('users') }}">Пользователи</a>
+        <a href="{{ url_for('registration') }}">Зарегистрироваться</a>
+        <div>
+            <h2>Добавление путешествия</h2> <!-- Заголовок формы регистрации -->
+            {% for field, errors in form.errors.items() %} <!-- Для высвечивания ошибок валидации -->
+                {{ ', '.join(errors) }}
+            {% endfor %}
+            <form method="POST"> <!-- Форма отправки данных методом POST -->
+                <div>
+                    {{ form. Place_of_the_trip.label }} {{ form.Place_of_the_trip() }} <!-- Поле ввода имени с меткой -->
+                </div>
+                <div>
+                    {{ form.Date_of_the_trip.label }} {{ form.Date_of_the_trip() }} <!-- Поле ввода возраста с меткой -->
+                </div>
+                <div>
+                    {{ form.Budget.label }} {{ form.Budget() }} <!-- Поле ввода email с меткой -->
+                </div>
+                <div>
+                    {{ form.Place_of_residence.label }} {{ form.Place_of_residence() }} <!-- Поле ввода телефона с меткой -->
+                </div>
+                <div>
+                    {{ form.How_long.label }} {{ form.How_long() }} <!-- Поле ввода адреса с меткой -->
+                </div>
+                
+                <div>
+                    {{ form.submit() }} <!-- Кнопка отправки формы -->
+                </div>
+            </form>
+        </div>
+    </body>
+
+</html>
+
